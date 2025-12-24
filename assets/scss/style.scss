@@ -1,0 +1,535 @@
+@use "base" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $font-family;
+}
+html {
+  font-size: 10px;
+  font-family: $font-family;
+}
+::-webkit-scrollbar {
+  width: 4px; 
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+ background: darken($primary, 10%);
+  border-radius: 2px;
+}
+
+* {
+  scrollbar-width: thin; 
+  scrollbar-color: lighten($primary-lite, 10%) transparent;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul-reset {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.material-icons-round {
+  font-family: $font-icon;
+}
+
+.text-grey {
+  color: $grey2 !important;
+}
+
+.text-purple{
+  color: $primary !important;
+}
+
+.container-fluid {
+  .sidebar-left {
+   @include d-none;
+    height: 100%;
+    position: fixed;
+    width: 80%;
+    @media only #{$desktop-lg} {
+      width: 19rem;
+       @include d-block;
+      height: 100vh;
+      position: relative;
+      transform: none !important;
+      visibility: visible !important;
+    }
+    .offcanvas-backdrop {
+      @media only #{$desktop-lg} {
+           @include d-none;
+      }
+    }
+    .sidebar .material-icons-round {
+      font-size: 20px;
+    }
+    .nav-item {
+      padding: 1.1rem 0 0;
+      cursor: pointer;
+      .nav-link {
+        position: relative;
+        &::before {
+          position: absolute;
+          content: "";
+          right: 0;
+          border-left: 4px solid transparent;
+          height: 100%;
+          border-radius: 3px 0 0 3px;
+        }
+        &.active,
+        &:hover {
+          color: $primary !important;
+          &::before {
+            border-left-color: $primary;
+          }
+        }
+      }
+    }
+    &.show {
+     @include d-block;
+    }
+    .logo-img {
+      height: 60px;
+      width: 130px;
+    }
+    .bottom-card {
+      padding-right: 2rem;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: 50%;
+        width: 120px;
+        height: 120px;
+        background: url("../images/man-work.svg") no-repeat center / contain;
+        z-index: 99;
+        transform: translateX(50%);
+        animation: floatUpDown 4s ease-in-out infinite;
+      }
+
+      .premium-card {
+        position: relative;
+        overflow: hidden;
+        color: $white !important;
+        border-radius: 1rem;
+        text-align: center;
+        background: $primary !important;
+        opacity: 0;
+        transform: translateY(40px);
+        animation: slideUp 0.8s ease-out forwards;
+
+        .btn-upgrade {
+          background-color: $white !important;
+          color: $primary !important;
+          width: 100px;
+          margin: 0 auto;
+          border-radius: 0.5rem;
+          text-transform: uppercase;
+          padding: 1rem;
+        }
+      }
+    }
+
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes floatUpDown {
+      0% {
+        transform: translateX(50%) translateY(0);
+      }
+      50% {
+        transform: translateX(50%) translateY(-12px);
+      }
+      100% {
+        transform: translateX(50%) translateY(0);
+      }
+    }
+  }
+
+  .sidebar-right {
+    width: 100%;
+    @media only #{$desktop-lg} {
+        @include d-block;
+      width: 28.5rem;
+    }
+
+    .user-section {
+      .top-icons {
+        .icon-btn {
+          color: $grey4;
+
+          &:hover {
+            color: $black;
+          }
+        }
+
+        .profile-img {
+          @include fixed-size(25px, 25px);
+          object-fit: cover;
+        }
+
+        .dropdown-toggle::after {
+             @include d-none;
+        }
+      }
+
+      .rounded-circle {
+        overflow: hidden;
+        @include fixed-size(90px, 90px);
+      }
+      .btn-sm {
+        color: $white;
+        border-radius: 6px;
+        padding: 5px 10px;
+        gap: 5px;
+        &.btn-primary {
+          background: $primary;
+          &:hover{
+            background: darken($primary, 10%);
+          }
+        }
+      }
+      .remind-box{
+          overflow: auto;
+           @media only #{$desktop-lg} {
+            height: 175px;
+            padding-right: 5px;
+          }
+        }
+      .card {
+        border: 0;
+        .card-count {
+          border-radius: 4px;
+        }
+        &.profile-card {
+          .color-primary {
+            color: $primary;
+          }
+        }
+        &.job-card {
+          border-radius: 8px;
+          position: relative;
+          .card-count {
+            @include fixed-size(40px, 40px);
+          }
+          .card-body {
+            position: relative;
+          }
+          .switch {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            display: inline-block;
+            width: 30px;
+            height: 18px;
+            input {
+              opacity: 0;
+              width: 0;
+              height: 0;
+            }
+          }
+
+          .slider {
+            position: absolute;
+            cursor: pointer;
+            background-color: $white;
+            border-radius: 34px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: 0.4s;
+          }
+
+          .slider::before {
+            position: absolute;
+            content: "";
+           @include fixed-size(12px, 12px);
+            left: 3px;
+            bottom: 3px;
+            background-color: $white;
+            border-radius: 50%;
+            transition: 0.4s;
+          }
+
+          input:checked + .slider::before {
+            transform: translateX(10px);
+          }
+          &.orange {
+            background: $red4;
+            .card-count {
+              background: $red3;
+            }
+            .slider {
+              &::before {
+                background: $red5;
+              }
+            }
+          }
+        }
+        &.purple {
+          background: $primary;
+          .card-count {
+            background: $blue3;
+          }
+          .slider {
+            &::before {
+              background: $primary;
+            }
+          }
+        }
+
+        &.remind-card {
+          $remind-colors: (
+            blue: (
+              $blue,
+              $blue2,
+            ),
+            yellow: (
+              $yellow,
+              $yellow2,
+            ),
+            red: (
+              $red2,
+              $red,
+            ),
+            green: (
+              $green2,
+              $green,
+            ),
+          );
+          &:not(:last-child) {
+            margin-bottom: 20px;
+          }
+
+          h4,
+          p {
+            color: $black;
+          }
+
+          .card-count {
+            @include fixed-size(35px, 35px);
+          }
+
+          @each $name, $colors in $remind-colors {
+            &.#{$name} {
+              .card-count {
+                background: nth($colors, 1);
+                span {
+                  color: nth($colors, 2);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main-content {
+    width: 100%;
+    background: $grey1;
+
+    @media only #{$desktop-lg} {
+      width: calc(100% - 475px);
+    }
+  }
+
+  .sidebar-left,
+  .sidebar-right {
+    @media only #{$desktop-lg} {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+  }
+
+  .dash-wrapper {
+    .search-wrapper {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      .search-input {
+        width: 0;
+        opacity: 0;
+        padding: 0 14px;
+        height: 40px;
+        border-radius: 8px 0 0 8px;
+        background: $grey5;
+        color: $grey6;
+        outline: none;
+        transition: width 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+      }
+      &.open {
+        .search-input {
+          width: 220px;
+          opacity: 1;
+          padding: 0 14px;
+        }
+      }
+
+      .search-button {
+       @include fixed-size(40px, 40px);
+        border-radius: 8px;
+        background: $primary;
+        cursor: pointer;
+        outline: none;
+
+        &:hover{
+            background: darken($primary, 10%);
+          }
+        span {
+          color: $white;
+        }
+      }
+    }
+    .gender-chart-col {
+      .card-body {
+        height: 200px;
+      }
+    }
+    .card {
+      border-radius: 6px;
+      padding: 6px;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: cardFadeUp 0.6s ease forwards;
+
+      &:hover {
+        box-shadow: 0 12px 28px rgba($black, 0.12);
+        transform: translateY(-6px);
+      }
+
+      .select-wrapper {
+        position: relative;
+        width: fit-content;
+        
+        .custom-select {
+          height: 36px;
+          padding: 0 3rem 0 1rem !important;
+          .select-icon {
+            position: absolute;
+            left: -17px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: $primary;
+            pointer-events: none;
+          }
+        }
+        span {
+          color: $primary;
+        }
+      }
+      .card-body {
+        .progress-sec {
+          background: transparent;
+
+          .icon-sm {
+            @include fixed-size(20px, 20px);
+            border-radius: 50%;
+          }
+          &.high {
+            color: $primary;
+            .icon-sm {
+              background: $grey7;
+              span {
+                color: $primary;
+              }
+            }
+          }
+          &.low {
+            color: $red;
+            .icon-sm {
+              background: $red2;
+              span {
+                color: $red;
+              }
+            }
+          }
+          &.in-progress {
+            color: $yellow2;
+            .icon-sm {
+              background: $yellow;
+              span {
+                color: $yellow2;
+              }
+            }
+          }
+        }
+        .text-end {
+          .progress-bar {
+            @include fixed-size(60px, 60px);
+          }
+        }
+      }
+    }
+    @keyframes cardFadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .stat-row {
+      &:not(:last-child) {
+        padding-bottom: 19px;
+        border-bottom: 1px solid $grey3;
+      }
+
+      .dot {
+        @include fixed-size(8px, 8px);
+        border-radius: 50%;
+        margin-right: 8px;
+        flex-shrink: 0;
+        &.shortlisted {
+          background-color: $yellow2;
+        }
+        &.finalised {
+          background-color: $green;
+        }
+        &.onHold {
+          background-color:$primary-lite;
+        }
+        &.rejected {
+          background-color: $red;
+        }
+        &.application {
+          background-color: $primary;
+        }
+      }
+
+      .label {
+        width: 85px;
+        white-space: nowrap;
+      }
+
+      .percent {
+        width: 100%;
+        @media only #{$desktop-lg} {
+          width: 35px;
+        }
+        white-space: nowrap;
+      }
+      .progress-box {
+        height: 5px;
+        border-radius: 5px;
+        overflow: hidden;
+        width: 105px;
+      }
+    }
+  }
+}

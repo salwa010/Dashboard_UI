@@ -1,0 +1,34 @@
+@use "colors" as *;
+@use "variables" as *;
+@use "typography" as *;
+
+@mixin main-flex($justify-content, $align-items) {
+  display: flex !important;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin main-flex-all($justify-content, $align-items, $flex-direction) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $flex-direction;
+}
+
+@mixin main-flex-1($align-items) {
+  display: flex;
+  align-items: $align-items;
+}
+
+@mixin fixed-size($width, $height) {
+  width: $width;
+  min-width: $width;
+  height: $height;
+  min-height: $height;
+}
+@mixin d-block() {
+  display: block;
+}
+@mixin d-none() {
+  display: none;
+}

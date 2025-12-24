@@ -1,0 +1,283 @@
+<section class="dash-wrapper p-4">
+  <div class="col-md-12 p-0" id="navbar"></div>
+  <div class="container-fluid py-4 px-0 mt-3">
+    <div class="row g-3 mb-3">
+      <div class="col-md-4 m-0  ">
+        <div class="card h-100 border-0">
+          <div
+            class="card-body d-flex justify-content-between align-items-center"
+          >
+            <div>
+              <p class="font-size-14 mb-1 text-grey">Total Applications</p>
+              <h3 class="mb-2 font-size-22 fw-bold">5672</h3>
+              <div
+                class="progress-sec high d-flex align-items-center justify-content-start gap-2 font-size-12"
+              >
+                <div
+                  class="icon-sm d-flex align-items-center justify-content-center"
+                >
+                  <span class="material-icons-round font-size-14">
+                    trending_up
+                  </span>
+                </div>
+
+                14% Inc
+              </div>
+            </div>
+            <div class="text-end">
+              <div class="progress-bar">
+                <canvas id="chartBlue"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 m-0">
+        <div class="card h-100 border-0">
+          <div
+            class="card-body d-flex justify-content-between align-items-center"
+          >
+            <div>
+              <p class="font-size-14 mb-1 text-grey">Shortlisted Candidates</p>
+              <h3 class="mb-2 font-size-22 fw-bold">3772</h3>
+              <div
+                class="progress-sec in-progress d-flex align-items-center justify-content-start gap-2 font-size-12"
+              >
+                <div
+                  class="icon-sm d-flex align-items-center justify-content-center"
+                >
+                  <span class="material-icons-round font-size-14">
+                    trending_up
+                  </span>
+                </div>
+
+                14% Inc
+              </div>
+            </div>
+            <div class="text-end">
+              <div class="progress-bar">
+                <canvas id="chartYellow"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 m-0">
+        <div class="card h-100 border-0">
+          <div
+            class="card-body d-flex justify-content-between align-items-center"
+          >
+            <div>
+              <p class="font-size-14 mb-1 text-grey">Rejected Canddiates</p>
+              <h3 class="mb-2 font-size-22 fw-bold">1055</h3>
+              <div
+                class="progress-sec low d-flex align-items-center justify-content-start gap-2 font-size-12"
+              >
+                <div
+                  class="icon-sm d-flex align-items-center justify-content-center"
+                >
+                  <span class="material-icons-round font-size-14">
+                    trending_down
+                  </span>
+                </div>
+
+                14% Inc
+              </div>
+            </div>
+            <div class="text-end">
+              <div class="progress-bar">
+                <canvas id="chartOrange"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-3 mb-3">
+      <div class="col-lg-8">
+        <div class="card h-100 border-0">
+          <div
+            class="card-header bg-white border-0 d-flex justify-content-between align-items-center"
+          >
+            <span class="fw-semibold font-size-14"
+              >Statistics of Active Applications</span
+            >
+           <div class="select-wrapper d-flex align-items-center justify-content-center">
+              <span class="select-icon font-size-14">
+                <span class="material-icons-round font-size-18"> date_range </span>
+              </span>
+              <select class="form-select custom-select border-0 font-size-13 fw-medium shadow-none">
+                <option selected>Week</option>
+                <option>Month</option>
+                <option>Year</option>
+              </select>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="" style="height: 220px;display: block;">
+<canvas id="applicationsStatsChart" height="200"></canvas>            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card h-100 border-0">
+          <div
+            class="card-header bg-white border-0 d-flex justify-content-between align-items-center"
+          >
+            <span class="fw-semibold font-size-14">Acquisitions</span>
+            <div class="select-wrapper d-flex align-items-center justify-content-center">
+              <span class="select-icon font-size-14">
+                <span class="material-icons-round font-size-18"> date_range </span>
+              </span>
+              <select class="form-select custom-select border-0 font-size-13 fw-medium shadow-none">
+                <option selected>Week</option>
+                <option>Month</option>
+                <option>Year</option>
+              </select>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="stat-row d-flex align-items-center font-size-12 mb-3">
+              <span class="dot application"></span>
+              <span class="label fw-medium">Applications</span>
+              <div class="flex-fill mx-2">
+                <div class="progress-box">
+                  <canvas
+                    id="applicationChart"
+                    height="20" class="w-100"
+                  ></canvas>
+                </div>
+              </div>
+              <span class="percent fw-semibold text-right">55%</span>
+            </div>
+            <div class="stat-row d-flex align-items-center font-size-12 mb-3">
+              <span class="dot shortlisted"></span>
+               <span class="label fw-medium">Shortlisted</span>
+              <div class="flex-fill mx-2">
+                <div class="progress-box">
+                  <canvas
+                    id="shortListChart"
+                    height="20"
+                    class="w-100"
+                  ></canvas>
+                </div>
+              </div>
+              <span class="percent fw-semibold text-right">55%</span>
+            </div>
+            <div class="stat-row d-flex align-items-center font-size-12 mb-3">
+              <span class="dot rejected"></span>
+               <span class="label fw-medium">Rejected</span>
+              <div class="flex-fill mx-2">
+                <div class="progress-box">
+                  <canvas
+                    id="rejectedChart"
+                    height="20"
+                    class="w-100"
+                  ></canvas>
+                </div>
+              </div>
+              <span class="percent fw-semibold text-right">55%</span>
+            </div>
+            <div class="stat-row d-flex align-items-center font-size-12 mb-3">
+              <span class="dot onHold"></span>
+               <span class="label fw-medium">On Hold</span>
+              <div class="flex-fill mx-2">
+                <div class="progress-box">
+                  <canvas
+                    id="onHoldChart"
+                    height="20"
+                    class="w-100"
+                  ></canvas>
+                </div>
+              </div>
+              <span class="percent fw-semibold text-right">55%</span>
+            </div>
+            <div class="stat-row d-flex align-items-center font-size-12 mb-3">
+              <span class="dot finalised"></span>
+               <span class="label fw-medium">Finalised</span>
+              <div class="flex-fill mx-2">
+                <div class="progress-box">
+                  <canvas
+                    id="finalisedChart"
+                    height="20"
+                    class="w-100"
+                  ></canvas>
+                </div>
+              </div>
+              <span class="percent fw-semibold text-right">55%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom row: line chart + gender chart -->
+    <div class="row g-3">
+      <div class="col-lg-8">
+        <div class="card h-100 border-0">
+          <div
+            class="card-header bg-white border-0 d-flex justify-content-between align-items-center"
+          >
+            <span class="fw-semibold font-size-14"
+              >Applications Received Time</span
+            >
+            <div class="select-wrapper d-flex align-items-center justify-content-center">
+              <span class="select-icon font-size-14">
+                <span class="material-icons-round font-size-18"> date_range </span>
+              </span>
+              <select class="form-select custom-select border-0 font-size-13 fw-medium shadow-none">
+                <option selected>Week</option>
+                <option>Month</option>
+                <option>Year</option>
+              </select>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="">
+              <canvas id="applicationsLineChart" height="200"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 gender-chart-col">
+        <div class="card h-100 border-0">
+          <div class="card-header bg-white border-0">
+            <span class="fw-semibold font-size-14">Candidates by Gender</span>
+          </div>
+          <div
+            class="card-body d-flex flex-column align-items-center"
+          >
+            <canvas id="genderChart" class="d-block"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- <div class="container">
+        <div class="chart-container">
+            <h2>Statistics of Active Applications (Week)</h2>
+            <canvas id="activeApplicationsChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h2>Acquisitions (Month)</h2>
+            <canvas id="acquisitionsChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h2>Applications Received Time (Today)</h2>
+            <canvas id="receivedTimeChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h2>Candidates by Gender</h2>
+            <canvas id="genderChart"></canvas>
+        </div>
+    </div> -->

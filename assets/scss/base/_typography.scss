@@ -1,0 +1,9 @@
+@for $i from 10 through 30 {
+  .font-size-#{$i} {
+    font-size: #{$i}px !important;
+  }
+}
+
+
+$font-family: 'Montserrat', sans-serif !important;
+$font-icon: 'Material Icons Round' !important;
