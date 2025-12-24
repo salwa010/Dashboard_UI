@@ -11,20 +11,20 @@ html {
   font-family: $font-family;
 }
 ::-webkit-scrollbar {
-  width: 4px; 
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
- background: darken($primary, 10%);
+  background: darken($primary, 10%);
   border-radius: 2px;
 }
 
 * {
-  scrollbar-width: thin; 
+  scrollbar-width: thin;
   scrollbar-color: lighten($primary-lite, 10%) transparent;
 }
 
@@ -46,19 +46,19 @@ ul-reset {
   color: $grey2 !important;
 }
 
-.text-purple{
+.text-purple {
   color: $primary !important;
 }
 
 .container-fluid {
   .sidebar-left {
-   @include d-none;
+    @include d-none;
     height: 100%;
     position: fixed;
     width: 80%;
     @media only #{$desktop-lg} {
       width: 19rem;
-       @include d-block;
+      @include d-block;
       height: 100vh;
       position: relative;
       transform: none !important;
@@ -66,7 +66,7 @@ ul-reset {
     }
     .offcanvas-backdrop {
       @media only #{$desktop-lg} {
-           @include d-none;
+        @include d-none;
       }
     }
     .sidebar .material-icons-round {
@@ -95,7 +95,7 @@ ul-reset {
       }
     }
     &.show {
-     @include d-block;
+      @include d-block;
     }
     .logo-img {
       height: 60px;
@@ -163,7 +163,7 @@ ul-reset {
   .sidebar-right {
     width: 100%;
     @media only #{$desktop-lg} {
-        @include d-block;
+      @include d-block;
       width: 28.5rem;
     }
 
@@ -183,7 +183,7 @@ ul-reset {
         }
 
         .dropdown-toggle::after {
-             @include d-none;
+          @include d-none;
         }
       }
 
@@ -198,18 +198,18 @@ ul-reset {
         gap: 5px;
         &.btn-primary {
           background: $primary;
-          &:hover{
+          &:hover {
             background: darken($primary, 10%);
           }
         }
       }
-      .remind-box{
-          overflow: auto;
-           @media only #{$desktop-lg} {
-            height: 175px;
-            padding-right: 5px;
-          }
+      .remind-box {
+        overflow: auto;
+        @media only #{$desktop-lg} {
+          height: 175px;
+          padding-right: 5px;
         }
+      }
       .card {
         border: 0;
         .card-count {
@@ -258,7 +258,7 @@ ul-reset {
           .slider::before {
             position: absolute;
             content: "";
-           @include fixed-size(12px, 12px);
+            @include fixed-size(12px, 12px);
             left: 3px;
             bottom: 3px;
             background-color: $white;
@@ -359,44 +359,6 @@ ul-reset {
   }
 
   .dash-wrapper {
-    .search-wrapper {
-      display: inline-flex;
-      align-items: center;
-      position: relative;
-      .search-input {
-        width: 0;
-        opacity: 0;
-        padding: 0 14px;
-        height: 40px;
-        border-radius: 8px 0 0 8px;
-        background: $grey5;
-        color: $grey6;
-        outline: none;
-        transition: width 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
-      }
-      &.open {
-        .search-input {
-          width: 220px;
-          opacity: 1;
-          padding: 0 14px;
-        }
-      }
-
-      .search-button {
-       @include fixed-size(40px, 40px);
-        border-radius: 8px;
-        background: $primary;
-        cursor: pointer;
-        outline: none;
-
-        &:hover{
-            background: darken($primary, 10%);
-          }
-        span {
-          color: $white;
-        }
-      }
-    }
     .gender-chart-col {
       .card-body {
         height: 200px;
@@ -418,7 +380,7 @@ ul-reset {
       .select-wrapper {
         position: relative;
         width: fit-content;
-        
+
         .custom-select {
           height: 36px;
           padding: 0 3rem 0 1rem !important;
@@ -502,7 +464,7 @@ ul-reset {
           background-color: $green;
         }
         &.onHold {
-          background-color:$primary-lite;
+          background-color: $primary-lite;
         }
         &.rejected {
           background-color: $red;
@@ -530,6 +492,36 @@ ul-reset {
         overflow: hidden;
         width: 105px;
       }
+    }
+  }
+}
+.search-wrappers {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  .search-input {
+    width: 220px;
+    opacity: 1 !important;
+    padding: 0 14px;
+    height: 40px;
+    border-radius: 8px 0 0 8px;
+    background: $grey5;
+    color: $grey6;
+    outline: none;
+  }
+
+  .search-button {
+    @include fixed-size(40px, 40px);
+    border-radius: 8px;
+    background: $primary;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      background: darken($primary, 10%);
+    }
+    span {
+      color: $white;
     }
   }
 }

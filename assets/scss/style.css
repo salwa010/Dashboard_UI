@@ -427,14 +427,12 @@ ul-reset {
     height: 100vh;
   }
 }
-.container-fluid .dash-wrapper .search-wrapper {
+.container-fluid .dash-wrapper .search-wrappers {
   display: inline-flex;
   align-items: center;
   position: relative;
 }
-.container-fluid .dash-wrapper .search-wrapper .search-input {
-  width: 0;
-  opacity: 0;
+.container-fluid .dash-wrapper .search-wrappers .search-input {
   padding: 0 14px;
   height: 40px;
   border-radius: 8px 0 0 8px;
@@ -448,7 +446,7 @@ ul-reset {
   opacity: 1;
   padding: 0 14px;
 }
-.container-fluid .dash-wrapper .search-wrapper .search-button {
+.container-fluid .dash-wrapper .search-wrappers .search-button {
   width: 40px;
   min-width: 40px;
   height: 40px;
@@ -458,10 +456,10 @@ ul-reset {
   cursor: pointer;
   outline: none;
 }
-.container-fluid .dash-wrapper .search-wrapper .search-button:hover {
+.container-fluid .dash-wrapper .search-wrappers .search-button:hover {
   background: #5800cc;
 }
-.container-fluid .dash-wrapper .search-wrapper .search-button span {
+.container-fluid .dash-wrapper .search-wrappers .search-button span {
   color: #fff;
 }
 .container-fluid .dash-wrapper .gender-chart-col .card-body {

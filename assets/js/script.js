@@ -30,36 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   loadHTML("sidebar-right", "layout/user.html");
 
   // 3. Load Navbar + initialize search functionality
-  loadHTML("navbar", "layout/navbar.html").then((success) => {
-    if (!success) return;
-
-    const wrapper = document.getElementById("searchWrapper");
-    const btn = document.getElementById("searchBtn");
-    const input = document.getElementById("searchInput");
-
-    if (!wrapper || !btn || !input) {
-      console.warn("Search elements not found in navbar.html");
-      return;
-    }
-
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      wrapper.classList.toggle("open");
-      if (wrapper.classList.contains("open")) {
-        input.focus();
-      } else {
-        input.blur();
-      }
-    });
-
-    // Close search when clicking outside
-    document.addEventListener("click", (e) => {
-      if (!wrapper.contains(e.target) && e.target !== btn) {
-        wrapper.classList.remove("open");
-        input.blur();
-      }
-    });
-  });
 
   // 4. Load Dashboard (main content) + initialize charts ONLY after script loads
   loadHTML("main-content", "layout/dashboard.html").then((success) => {
